@@ -1,0 +1,23 @@
+               Program 1
+
+--Find the max of a matrix. 
+--put all the matrix items in an arry and then find maximum with
+it's index
+
+               Program 2
+Find the maximum of the last column of a matrix
+
+               Program 3
+From calls.csv, find all the phone numbers that received a call from bangalore (areacode (080)). Exclude the duplicate numbers
+
+               Program 4
+Find all the area-codes from a given list of phone-numbers that received a call from bangalor (areacode (080)). Exclude the duplicate duplicate
+
+               Program 5
+From a given list of phone_number find out what percentage of them starts with area-code 080
+
+                Program 6
+From calls.csv identify the telemarketer's phonenumbers i.e. numbers that start with 140
+
+
+

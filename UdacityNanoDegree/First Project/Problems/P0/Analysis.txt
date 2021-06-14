@@ -1,0 +1,16 @@
+           Task0
+This programs runs in O(1) time (or "constant time").
+
+            Task01
+This programs runs in O(1) time (or "constant time").
+
+            Task02
+If outer loop runs n times and our inner loop runs n times for each iteration of the outer loop, 
+giving us n2 total runs. Thus this program runs in O(n2) time (or "quadratic time"),ignoring all the constant time.
+
+            Task03
+Dropping all the constants and applying the samge logic as in Task02,this program runs in O(n2) time (or "quadratic time").
+
+            Task04
+This program runs in O(n2) time (or "quadratic time"). Same as Task02
+
