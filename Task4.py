@@ -27,31 +27,35 @@ The list of numbers should be print out one per line in lexicographic order with
 
 print("These numbers could be telemarketers: ")
 
-calling_numbers=set()
-receving_numbers=set()
+calling_140=set()
+receving_140=set()
 text_sending=set()
 text_receiving=set()
 telemarketers=set()
 
 def telemarketers_list(calls,texts): 
-    global calling_numbers,receving_numbers,text_sending,text_receiving,telemarketers  
+    global calling_140,receving_140,text_sending,text_receiving,telemarketers  
     m=len(calls)
     n=len(texts)
      
-    # making a list of numbers that are calling/reciving 
+    # making a list of calling/reciving numbers
     for row in range(m): 
-        calling_numbers.add(calls[row][0])
-        receving_numbers.add(calls[row][1])        
+        if '140'in calls[row][0][:4]:
+            calling_140.add(calls[row][0])
+        if '140'in calls[row][1][:4]:
+           receving_140.add(calls[row][1])        
            
            
-    # making a list of numbers that are sending/receiving texts
+    # making a list of sending/receiving texts
     for row in range(n): 
-        text_sending.add(texts[row][0])
-        text_receiving.add(texts[row][1])
+        if '140'in texts[row][0][:4]:
+            text_sending.add(calls[row][0])
+        if '140'in texts[row][1][:4]:
+            text_receiving.add(calls[row][1])
 
    #Getting rid of unnecessary numbers
 
-    telemarketers=calling_numbers-receving_numbers-text_sending-text_receiving
+    telemarketers=calling_140-receving_140-text_sending-text_receiving
     
     telemarketers=sorted(list(telemarketers)) 
 

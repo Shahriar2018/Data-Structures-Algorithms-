@@ -1,16 +1,70 @@
-           Task0
-This programs runs in O(1) time (or "constant time").
+
+The import of CSV files is a constant complexity task.
+
+Algorithm:
+Importing calls.csv take O(1)
+Importing texts.csv take O(1)
+
+Analysis:
+Runs on (O(1)+O(1) --> 2O(1)--> O(1) time(Ignoring the constant in front)
+This complexity is negligble.During analysis, this run time won't be accounted for.
+
+
+
+
+                Task0
+Worse case complexity:  O(1) time (constant time)
+Algorithm:
+Printing the first message(complexity : O(1))
+Printing the second message(complexity : O(1))
+Analysis:
+Runs on (O(1)+O(1) --> 2*O(1)--> O(1) time(Ignoring the constant(i.e. 2) in front)    
+    
 
             Task01
-This programs runs in O(1) time (or "constant time").
+Assuming that the total number of records in the CSV files are subject to change,worse case complexity would be of linear pattern (O(n)).
+Meaning,the more inputs the more runtime.
+
+Algorithm:
+--Initiating an empty set (Unique_number) : (complexity : O(1))
+--Both "for" loops have two operation wich will run at 0(1) complexity.
+--The total runtime of the loop is function of the number inputs. For exaplmple, if there are m number of records in calls.csv for the first loop,
+the run-time is 2*f(m).Similarly, if there is k number of records in texts.csv, the run-time is 2*f(k). Total run time is 2*(f(m)+f(k)). if m>k,the worst case
+scenario is f(m).
+
 
             Task02
-If outer loop runs n times and our inner loop runs n times for each iteration of the outer loop, 
-giving us n2 total runs. Thus this program runs in O(n2) time (or "quadratic time"),ignoring all the constant time.
+Assuming that the total number of records in the calls.CSV file is subject to change,worse case complexity would be of linear pattern (O(n)).
+Meaning,the more inputs the more runtime.
+
+Algorithm:
+-- initiating an emptY dictionary (complexity :O(1))
+--map through calls and texts to update set(complexity: O(n))
+-- Calling the function:longest_calls (complexity :O(1))
+-- Identifying the phone number using in built funciton (complexity :O(1))
+-- Printing message (complexity :O(1))
+
 
             Task03
-Dropping all the constants and applying the samge logic as in Task02,this program runs in O(n2) time (or "quadratic time").
+Assuming that the total number of records in the CSV files are subject to change,worse case complexity would be of quasilinear pattern O(n logn).
+
+
+Algorithm:
+-- Initializing the varibales at the outset (complexity :O(1))
+-- Running the loops in side the function--> (complexity: O(n)). I am ignoring the constant complexities(O(1)) within because the are not significant.
+--Sorting of the listed area coodes within the function (complexity O(n logn))
+-- calling the function, running the opertions and printing the messages.(complexity :O(1))
+
+Analysis:
+Overall worst complexity is O(n logn)  by ignoring the constant and linear complexities because they are insignificant when the number of inputs are too high.
 
             Task04
-This program runs in O(n2) time (or "quadratic time"). Same as Task02
+Assuming that the total number of records in the CSV files are subject to change,worse case complexity would be of quasilinear pattern O(n logn).
+
+Algorithm:
+-- Printing message (complexity :O(1))
+---- Initializing the varibales  (complexity :O(1))
+--- running three loops within function  (complexity: O(n)). Assuming the worst case scenarios and ignoring constant time.
+--Sorting of the listed telemarketers within the function (complexity O(n logn))
+-- Calling the function.(complexity :O(1))
 

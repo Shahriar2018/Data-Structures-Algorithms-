@@ -19,46 +19,50 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
+phone_number=dict()
 
-
-"""
-Firstly, I will make a function of to return the list of all durations
-
-"""
-emp=[]
-
-def mcl(calls): 
+def longest_call(calls):
     
     
-    m=len(calls)
-    n=len(calls[0])
     
-    for row in range(m):
-        for column in range(n):        
-            if column==n-1:
-                emp.append(int(calls[row][column]))
+    global phone_number
+    
+    for row in range(len(calls)):
+        
+        key1=calls[row][0] #calling numbers
+        key2=calls[row][1] #Receiving numbers
+        value=int(calls[row][3])
+        
+        if key1  in phone_number and key2 not in phone_number:
+            phone_number[key1]=phone_number[key1]+value
             
-    return emp
+        if key2 in phone_number and key1 not in phone_number:
+            phone_number[key2]=phone_number[key2]+value 
+            
+        if key1 in phone_number and key2  in phone_number:
+            phone_number[key1]=phone_number[key1]+value
+            phone_number[key2]=phone_number[key2]+value 
+            
+        if key1 not in phone_number and key2 not in phone_number:
+            phone_number[key1]=value
+            phone_number[key2]=value
+        
+                      
+    return phone_number
 
-"""
-Secondly findin the longest call duretion
+longest_call(calls)
 
-"""
-duration_list=mcl(calls)
-long_call=max(duration_list)
+max=sorted(phone_number.values(),reverse=True)[0]
 
-
-
-"""
-Finally, finding the telephone# using index
-
-"""
-
-phone_index=duration_list.index(long_call)
-phone_number=calls[phone_index][0]
+def get_key (value):
+    for key,value in phone_number.items():
+        if value==max:
+            return key
 
 
-print(phone_number,"spent the longest time,",long_call,"seconds,"+
+max_phone=get_key(max)
+
+print(max_phone,"spent the longest time,",max,"seconds,"+
       "on the phone during September 2016."
       )
 

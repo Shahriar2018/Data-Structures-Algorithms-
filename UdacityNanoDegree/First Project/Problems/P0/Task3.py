@@ -47,8 +47,36 @@ The percentage should have 2 decimal digits
 """
 
 """                             PART A                                        """
-receiving_numbers=[]
-code=[]
+
+#  Set of calls receieved from Bangalore
+denominator=0
+numerator=0
+#Bangalore numbers that received calls from bangalore
+
+area_code=list()
+receiving_numbers=list()
+
+
+
+
+# =============================================================================
+#  Functions that list all the phone numbers that received a call from bangalor (areacode (080))
+#     
+# =============================================================================
+
+def mcl(calls): 
+    m=len(calls)
+    global denominator
+    global receiving_numbers
+    
+    for row in range(m):      
+            if '(080)'in calls[row][0]:
+                receiving_numbers.append(calls[row][1])
+                
+    denominator=len(receiving_numbers)
+    #Total number of calls  made from bangalore 
+    
+    return return_sorted(receiving_numbers)
 
 # =============================================================================
 # Function That returns the area codes
@@ -56,52 +84,38 @@ code=[]
 
 
 def return_sorted(data):
+    global area_code
+    global numerator
 
 
     for i in range(len(data)):
-        if '('  in data[i]:
-            s1=data[i].split('(')
-            s2=s1[1].split(')')
-            if s2[0] not in code:
-                code.append(s2[0])
-        elif data[i][:3]=='140' and '140' not in code:
-            code.append('140')
-        else :
-            s1=data[i].split()
-            if s1[0] not in code:
-                code.append(s1[0])
-                
-    area_code=sorted(code)
-    
-    for j in range(len(area_code)):
-         print(area_code[j])
         
+        if '('  in data[i]:
+            area_code.append(data[i][data[i].index('('):data[i].index(')')+1])
+            
+        elif '140'in data[i][:3]:
+            area_code.append('140')
+        
+        
+        elif '7'or '8' or '9'== data[i][0][:1]:
+            area_code.append(data[i][:4])
+            
+    numerator=area_code.count('(080)')
+    # Number calls  made to a number also starting with "(080)"
+            
+        
+        
+    area_code=set(area_code)
+    area_code=sorted(list(area_code))
+    
+    for i in range(len(area_code)):
+        print(area_code[i])
         
                 
     return ''
                 
       
-# =============================================================================
-#  Functions that list all the phone numbers that received a call from bangalor (areacode (080))
-#     
-# =============================================================================
 
-def mcl(calls): 
-    
-
-    
-    
-    m=len(calls)
-    n=len(calls[0])
-    
-    for row in range(m):
-        for column in range(n):
-            if '(080)'in calls[row][0]:
-                if calls[row][1] not in receiving_numbers:
-                    receiving_numbers.append(calls[row][1])
-    
-    
-    return return_sorted(receiving_numbers)
 
 print("The numbers called by people in Bangalore have codes:")
 
@@ -115,45 +129,11 @@ mcl(calls)
                             PART B
 
 """
-
-# =============================================================================
-# Function that return percentage
-# 
-# =============================================================================
-def return_percentage(data):
-    denominator=len(data)
-    numerator=0
-
-    for i in range(len(data)):
-        if '('  in data[i]:
-            if data[i][1:4]=='080':          
-                numerator=numerator+1
-    
-    result=float((numerator/denominator)*100)        
-    
-                
-    return "{:.2f}".format(result)
-# =============================================================================
-# Functions that list all the phone numbers that received a call from bangalore (areacode (080))
-# =============================================================================
-bangalore_numbers=[]
-
-def make_list(calls): 
-    
-
-    
-    
-    m=len(calls)
-    n=len(calls[0])
-    
-    for row in range(m):
-        for column in range(n):
-            if '(080)'in calls[row][0]:
-                if calls[row][1] not in bangalore_numbers:
-                    bangalore_numbers.append(calls[row][1])  
-    
-    return return_percentage(bangalore_numbers)
+fraction=float((numerator/denominator)*100)
+percent="{:.2f}".format(fraction)
 
 
-print('\n',make_list(calls),"percent of calls from fixed lines in Bangalore are calls"+
+
+
+print('\n',percent,"percent of calls from fixed lines in Bangalore are calls"+
 " to other fixed lines in Bangalore.")

@@ -20,19 +20,17 @@ Print a message:
 """
 
 
-"""                        My Thought precess
+unique_number=set()
 
---> There are two columns,both in texts and calls, that contain the number.So if I multiply 
-the length of lists by two I should get total of the phone numbers in every record.
-
--- > so,  number of telepone numbers:
+for i in range(len(calls)):
+    unique_number.add(calls[i][0])
+    unique_number.add(calls[i][1])
     
-    in texts-file = 2*len(texts)
-    in calls-file = 2* len(calls)
-    
--- > Adding the above outputs should provide the total
+for i in range(len(texts)):
+    unique_number.add(texts[i][0])
+    unique_number.add(texts[i][1])
 
-"""
 
-print('there are ',2*len(texts)+2*len(calls),'different telephone numbers in the records')
+
+print('there are ',len(unique_number),'different telephone numbers in the records')
 
